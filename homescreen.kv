@@ -1,0 +1,275 @@
+<home_screen>:
+    #Screem name
+    name: "home"
+
+
+    #Creates the grid for the program to work within
+    MDGridLayout:
+        #One column means each section stacks downwards
+        cols: 1
+        #Set the grid to fill the window
+        size: root.width, root.height
+
+
+        #SECTION 1 TOP MENU
+        #Creates the menu bar at the top of the app
+        MDTopAppBar:
+            title: "Date"
+            specific_text_color: ("#FFFFFF")
+            md_bg_color: ("#002C6A")
+            anchor_title: "left"
+            #Creates the button for the account menu
+            right_action_items: [["account-cowboy-hat-outline", lambda x: app.accountSettings_menu()]]
+
+
+        #SECTION 2 BANNER IMAGE
+        #Creates the image below the top menu bar
+        Image:
+            source: '!Project.png'
+            size: self.texture_size
+            size_hint_y: 0.2
+
+
+        #Creates the grid for the program to work within
+        MDGridLayout:
+            #One column means each section stacks downwards
+            cols: 2
+            #Set the grid to fill the window
+            size: root.width, root.height
+
+            MDNavigationRail:
+                anchor: "top"
+                selected_color_background:"#F8D99B"
+                spacing: 10
+
+                MDNavigationRailItem:
+                    text: "Schedule"
+                    icon: "book-edit-outline"
+                    on_release:
+
+                MDNavigationRailItem:
+                    text: "Stock"
+                    icon: "cupboard-outline"
+                    on_release:
+
+                MDNavigationRailItem:
+                    text: "History"
+                    icon: "book-clock-outline"
+                    on_release:
+
+                MDNavigationRailItem:
+                    text: "Safety"
+                    icon: "shield-account-variant-outline"
+                    on_release:
+
+
+            #SECTION 3 SCHEDULE CAROUSEL
+            #Creates the schedule part that fills mose of the screen
+            #Each box layout with in allows for a different time frame to be shown
+            MDCarousel:
+                BoxLayout:
+                    MDLabel:
+                        id: slideSchedule
+                        text: "Day view"
+                        halign: "center"
+
+                BoxLayout:
+                    MDLabel:
+                        text: "Week view"
+                        halign: "center"
+
+                BoxLayout:
+                    MDLabel:
+                        text: "Month view"
+                        halign: "center"
+
+
+        #SECTION 4 BOTTOM MENU
+        #Creates the bar at the bottom of the app that allos for the stock menu to be shown
+        MDBottomAppBar:
+            md_bg_color: 0/255.0, 44/255.0, 106/255.0, 1
+
+            MDTopAppBar:
+                #Setting up Icon in centre
+                mode: "center"
+                text: "Time"
+                icon: "D:\VS\Kivy Code\Practice\Project\!Project3.png"
+                type: "bottom"
+                icon_color: 0/255.0, 44/255.0, 106/255.0, 1
+                #When button is pressed runs def in main.py
+                on_action_button: app.popUp_menu()
+
+
+
+##########################################################################################################################
+
+
+
+<account_screen>:
+    #Screen name
+    name: "account"
+
+    #Creates the grid for the program to work within
+    MDGridLayout:
+        #One column means each section stacks downwards
+        cols: 1
+        #Set the grid to fill the window
+        size: root.width, root.height
+
+
+
+        #SECTION 1 TOP MENU
+        #Creates the menu bar at the top of the app
+        MDTopAppBar:
+            title: "Account"
+            specific_text_color: ("#FFFFFF")
+            md_bg_color: ("#002C6A")
+            anchor_title: "left"
+            #Creates the button for the account menu
+            right_action_items: [["arrow-left", lambda x: app.home_menu()]]
+
+
+        #SECTION 2 BANNER IMAGE
+        #Creates the image below the top menu bar
+        Image:
+            source: '!Project.png'
+            size: self.texture_size
+            size_hint_y: 0.2
+
+
+        #SECTION 3 LIST OF ACCOUNT DETAILS
+        MDGridLayout:
+            #One column means each section stacks downwards
+            cols: 1
+            #Set the grid to fill the window
+            size: root.width, root.height
+            #Padding + Spacing gives space between Widgets
+            padding: 1
+            spacing: 1
+
+            #Creates a list displaying users Data
+            MDList:
+                id: account_details_list
+
+            #Email
+            OneLineAvatarIconListItem:
+                id: email_change
+                text: "Email"
+
+                IconLeftWidget:
+                    icon: "email"
+
+            #Password
+            OneLineAvatarIconListItem:
+                id: password_change
+                text: "Password"
+
+                IconLeftWidget:
+                    icon: "key-chain-variant"
+
+            #UserId
+            OneLineAvatarIconListItem:
+                text: "UserId"
+
+                IconLeftWidget:
+                    icon: "medication-outline"
+
+            #Name
+            OneLineAvatarIconListItem:
+                id: name_change
+                text: "Name"
+
+                IconLeftWidget:
+                    icon: "account-tie-outline"
+
+
+        #SECTION 4 BOTTOM MENU
+        #Creates the bar at the bottom of the app that allos for the stock menu to be shown
+        MDBottomAppBar:
+            md_bg_color: 0/255.0, 44/255.0, 106/255.0, 1
+
+            MDTopAppBar:
+                #Setting up Icon in centre
+                mode: "center"
+                text: "Time"
+                icon: "D:\VS\Kivy Code\Practice\Project\!Project3.png"
+                type: "bottom"
+                icon_color: 0/255.0, 44/255.0, 106/255.0, 1
+                #When button is pressed runs def in main.py
+                on_action_button: app.popUp_menu()
+
+
+
+##########################################################################################################################
+
+
+
+<settings_screen>:
+    #Screen name
+    name: "Settings"
+
+    #Creates the grid for the program to work within
+    MDGridLayout:
+        #One column means each section stacks downwards
+        cols: 1
+        #Set the grid to fill the window
+        size: root.width, root.height
+
+
+        #SECTION 1 TOP MENU
+        #Creates the menu bar at the top of the app
+        MDTopAppBar:
+            title: "Settings"
+            specific_text_color: ("#FFFFFF")
+            md_bg_color: ("#002C6A")
+            anchor_title: "left"
+            #Creates the button for the account menu
+            right_action_items: [["account-cowboy-hat-outline", lambda x: app.accountSettings_menu()]]
+
+
+        #SECTION 2 BANNER IMAGE
+        #Creates the image below the top menu bar
+        Image:
+            source: '!Project.png'
+            size: self.texture_size
+            size_hint_y: 0.2
+
+
+        #SECTION 3 LIST OF ACCOUNT DETAILS
+        MDGridLayout:
+            #One column means each section stacks downwards
+            cols: 1
+            #Set the grid to fill the window
+            size: root.width, root.height
+            #Padding + Spacing gives space between Widgets
+            padding: 1
+            spacing: 1
+
+            #Creates a list displaying users Data
+            MDList:
+                id: account_details_list
+
+            #Email
+            OneLineAvatarIconListItem:
+                id: email_change
+                text: "Settings"
+
+
+        #SECTION 4 BOTTOM MENU
+        #Creates the bar at the bottom of the app that allos for the stock menu to be shown
+        MDBottomAppBar:
+            md_bg_color: 0/255.0, 44/255.0, 106/255.0, 1
+
+            MDTopAppBar:
+                #Setting up Icon in centre
+                mode: "center"
+                text: "Time"
+                icon: "D:\VS\Kivy Code\Practice\Project\!Project3.png"
+                type: "bottom"
+                icon_color: 0/255.0, 44/255.0, 106/255.0, 1
+                #When button is pressed runs def in main.py
+                on_action_button: app.home_menu2()
+
+
+
+##########################################################################################################################
